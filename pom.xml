@@ -26,14 +26,10 @@
 
 
 	<dependencies>
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency> -->
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jersey</artifactId>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-thymeleaf</artifactId> 
+			</dependency> -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-jersey</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -41,44 +37,37 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<!-- <exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions> -->
+			<!-- <exclusions> <exclusion> <groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-starter-logging</artifactId> </exclusion> </exclusions> -->
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-jdbc</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<!-- <exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions> -->
+			<!-- <exclusions> <exclusion> <groupId>org.springframework.boot</groupId> 
+				<artifactId>spring-boot-starter-logging</artifactId> </exclusion> </exclusions> -->
 		</dependency>
-		<!-- Added this dependency just to exclude the starter logging  -->
+		<!-- Added this dependency just to exclude the starter logging -->
 		<dependency>
-    		<groupId>org.springframework.boot</groupId>
-    		<artifactId>spring-boot-starter</artifactId>
-    		<exclusions>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-starter-logging</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- Removed it to manually add slf4j-log4j12 -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j</artifactId>
-		</dependency> -->
-		<!--  logging framework is SLF4J. The dependent Jars are slf4j-api, slf4j-logrj12, log4j -->
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- Removed it to manually add slf4j-log4j12 -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-log4j</artifactId> 
+			</dependency> -->
+		<!-- logging framework is SLF4J. The dependent Jars are slf4j-api, slf4j-logrj12, 
+			log4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -88,94 +77,30 @@
 			<artifactId>log4j</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-        </dependency>
-        <!-- <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-        </dependency> -->
-		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			<version>${mysql.version}</version> </dependency> -->
+		<!-- Tomcat dependency Not Required -->
+		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<!-- <scope>provided</scope> -->
-		</dependency>
-		
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<!-- <scope>provided</scope> -->
-		</dependency>
-		
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
-		</dependency>
-		
-		<!-- <dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}<	/version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>jstl</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${jstl.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${org.slf4j-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-			<scope>runtime</scope>
+			<scope>provided</scope>
 		</dependency> -->
 	</dependencies>
-	
+
 	<repositories>
-        <repository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/libs-release</url>
-        </repository>
-        <!-- <repository>
-            <id>org.jboss.repository.releases</id>
-            <name>JBoss Maven Release Repository</name>
-            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
-        </repository> -->
-    </repositories>
-	
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+		<!-- <repository> <id>org.jboss.repository.releases</id> <name>JBoss Maven 
+			Release Repository</name> <url>https://repository.jboss.org/nexus/content/repositories/releases</url> 
+			</repository> -->
+	</repositories>
+
 	<build>
 		<finalName>ir-spring-boot</finalName>
 		<plugins>
@@ -185,8 +110,8 @@
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
-          		<artifactId>versions-maven-plugin</artifactId>
-          		<version>2.3</version>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.3</version>
 			</plugin>
 		</plugins>
 	</build>
