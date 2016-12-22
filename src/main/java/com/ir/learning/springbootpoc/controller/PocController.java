@@ -20,6 +20,8 @@ public class PocController {
 
 	@Autowired//(required=false)
 	private PocService pocService;
+	
+	private static final String CUSTOM_EXCEPTION = "Custom Exception: ";
 
 
 
@@ -40,7 +42,7 @@ public class PocController {
 
 	@ExceptionHandler(MyException.class)
 	public ResponseEntity<ErrorResponse> exception(MyException e) {
-		ErrorResponse er = new ErrorResponse(true, "This is a test exception", HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.value());
+		ErrorResponse er = new ErrorResponse(true, CUSTOM_EXCEPTION + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.value());
 
 		ResponseEntity<ErrorResponse> re = new ResponseEntity<ErrorResponse>(er, HttpStatus.INTERNAL_SERVER_ERROR);
 

@@ -5,8 +5,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.ir.learning.springbootpoc.interceptor.PocInterceptor;
 import com.ir.learning.springbootpoc.services.PocService;
 import com.ir.learning.springbootpoc.services.impl.PocServiceImpl;
 
@@ -26,6 +29,17 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 		return pool;
 	}
 	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(getInterceptor()).addPathPatterns("/**");
+		//super.addInterceptors(registry);
+	}
+	
+	private HandlerInterceptor getInterceptor() {
+		HandlerInterceptor interceptor = new PocInterceptor();
+		return interceptor;
+	}
+
 	@Bean
 	@Profile("prod")
 	public PocService pocService(){
