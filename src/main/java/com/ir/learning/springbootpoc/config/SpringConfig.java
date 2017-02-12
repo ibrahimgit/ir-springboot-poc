@@ -39,6 +39,8 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 		HandlerInterceptor interceptor = new PocInterceptor();
 		return interceptor;
 	}
+	
+	//public JavaMail
 
 	@Bean
 	@Profile("prod")
