@@ -1,3 +1,9 @@
 server:
  port: 8070
- context-path: /springboot
+ context-path: /v/springboot
+ 
+ 
+test: 
+ yml: @project.name@
+ delimeter: ${spring.learning.name}
+ version1: v1.0

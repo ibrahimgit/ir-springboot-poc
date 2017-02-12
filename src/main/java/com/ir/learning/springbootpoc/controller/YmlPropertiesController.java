@@ -87,6 +87,18 @@ public class YmlPropertiesController {
 		return ymlproperties;
 	}
 	
+	@RequestMapping("infoBuild")
+	public YmlProperties infoBuild() {
+		
+		YmlProperties ymlproperties = new YmlProperties();
+		ymlproperties.setProjectName(environemnt.getProperty("test.yml"));
+		ymlproperties.setVersion(environemnt.getProperty("info.build.version"));
+		ymlproperties.setDescription(environemnt.getProperty("info.build.description"));
+		ymlproperties.setName(environemnt.getProperty("test.delimeter"));
+
+		return ymlproperties;
+	}
+	
 	
 
 }

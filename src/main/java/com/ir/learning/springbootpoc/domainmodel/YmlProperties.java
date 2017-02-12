@@ -9,6 +9,9 @@ public class YmlProperties {
 	private Map<String, Integer> mymap;
 	private String name;
 	private String value;
+	private String version;
+	private String description;
+	private String projectName;
 	
 	public List<Integer> getMylist() {
 		return mylist;
@@ -33,6 +36,24 @@ public class YmlProperties {
 	}
 	public void setValue(String value) {
 		this.value = value;
+	}
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 	
 	
