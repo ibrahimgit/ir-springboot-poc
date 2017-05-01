@@ -1,5 +1,6 @@
 package com.ir.learning.springbootpoc.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ir.learning.springbootpoc.domainmodel.Galaxy;
 import com.ir.learning.springbootpoc.exception.ErrorResponse;
 import com.ir.learning.springbootpoc.exception.MyException;
+import com.ir.learning.springbootpoc.services.MyServices;
 import com.ir.learning.springbootpoc.services.PocService;
 
 @RestController
@@ -21,9 +23,12 @@ public class PocController {
 	@Autowired//(required=false)
 	private PocService pocService;
 	
+	@Autowired
+	private MyServices myServices;
+	
 	private static final String CUSTOM_EXCEPTION = "Custom Exception: ";
 
-
+	private static final Logger LOGGER = Logger.getLogger(PocController.class);
 
 	@RequestMapping(value = "exception/{id}", method = RequestMethod.GET)
 	public Galaxy testException(@PathVariable("id") Integer id) throws MyException{
@@ -47,6 +52,14 @@ public class PocController {
 		ResponseEntity<ErrorResponse> re = new ResponseEntity<ErrorResponse>(er, HttpStatus.INTERNAL_SERVER_ERROR);
 
 		return re;
+	}
+	
+	@RequestMapping("testAsync")
+	public String testAsync() throws InterruptedException {
+		LOGGER.debug("Inside test Async");
+		myServices.testAsync();
+		LOGGER.debug("exiting test Async");
+		return "success";
 	}
 
 }

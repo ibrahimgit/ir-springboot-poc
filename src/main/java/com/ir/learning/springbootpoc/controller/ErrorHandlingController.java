@@ -1,5 +1,6 @@
 package com.ir.learning.springbootpoc.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,11 @@ import com.ir.learning.springbootpoc.exception.ErrorResponse;
 @ControllerAdvice
 public class ErrorHandlingController {
 
+	private static final Logger LOGGER = Logger.getLogger(ErrorHandlingController.class);
 
 	@ExceptionHandler({IncorrectResultSizeDataAccessException.class, NullPointerException.class})
 	public ResponseEntity<ErrorResponse> error(Exception e) {
+		LOGGER.error(e.getMessage(), e);
 		ErrorResponse er = new ErrorResponse(true, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.value());
 
 		ResponseEntity<ErrorResponse> re = new ResponseEntity<ErrorResponse>(er, HttpStatus.INTERNAL_SERVER_ERROR);

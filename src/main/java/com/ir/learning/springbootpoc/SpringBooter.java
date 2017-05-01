@@ -3,6 +3,8 @@ package com.ir.learning.springbootpoc;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 
 
@@ -11,7 +13,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 //@EnableTransactionManagement// not required if @SpringBootApplication is there
 //@EnableWebMvc // not required if @SpringBootApplication is there
 //@ComponentScan/*(basePackages="com.ir.learning.springbootpoc")*/
-//@PropertySource("Test.properties") //for loading different properties other than default application.properties
+@PropertySource("Test.properties") //for loading different properties other than default application.properties
+@EnableAsync
 public class SpringBooter implements CommandLineRunner/*extends SpringBootServletInitializer*/ /*extends WebMvcConfigurerAdapter*/ {
 
 	
