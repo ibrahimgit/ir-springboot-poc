@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ir.learning.springbootpoc.domainmodel.Galaxy;
@@ -61,5 +62,20 @@ public class PocController {
 		LOGGER.debug("exiting test Async");
 		return "success";
 	}
+	
+	
+	@RequestMapping("testparam")
+	public String testParam(String param) throws InterruptedException {
+		LOGGER.debug("Inside test param: " + param);
+		return "success";
+	}
+	
+	@RequestMapping("path/{testpath}")
+	public String testPathvariable(String testpath) throws InterruptedException {
+		LOGGER.debug("Inside test path: " + testpath);
+		return "success";
+	}
+	
+	
 
 }
