@@ -34,5 +34,14 @@ public class ErrorHandlingController {
 
 		return re;
 	}
+	
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ErrorResponse> exceptionError(Exception e) {
+		ErrorResponse er = new ErrorResponse(true, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR.value());
+
+		ResponseEntity<ErrorResponse> re = new ResponseEntity<ErrorResponse>(er, HttpStatus.INTERNAL_SERVER_ERROR);
+
+		return re;
+	}
 
 }

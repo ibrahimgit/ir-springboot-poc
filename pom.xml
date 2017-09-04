@@ -102,7 +102,12 @@
 			<artifactId>mail</artifactId>
 			<version>1.4</version>
 		</dependency>
-
+		<!-- This was added for bean validation dependency -->
+		<dependency>
+    		<groupId>org.jsoup</groupId>
+    		<artifactId>jsoup</artifactId>
+    	<version>1.8.3</version>
+</dependency>
 	</dependencies>
 
 	<repositories>

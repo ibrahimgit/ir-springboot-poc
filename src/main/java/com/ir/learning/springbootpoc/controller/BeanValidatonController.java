@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ir.learning.springbootpoc.domainmodel.Student;
 
 @RestController
+@RequestMapping("bean")
 public class BeanValidatonController {
 	
 	@RequestMapping(value = "getStudent", method=RequestMethod.POST)

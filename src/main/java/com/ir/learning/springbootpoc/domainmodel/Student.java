@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.SafeHtml;
 
 public class Student {
 	
@@ -15,13 +16,18 @@ public class Student {
 	@NotNull(message = "Last name cannot be null")
 	@NotEmpty(message = "Last name cannot be empty")
 	private String lastName;
-	@NotNull(message = "Email cannot be null")
-	@NotEmpty(message = "Email name cannot be empty")
+	//@NotNull(message = "Email cannot be null")
+	//@NotEmpty(message = "Email name cannot be empty")
 	@Email(message = "Email is not valid")
 	private String email;
 	@Max(100)
 	@Min(3)
 	private int age;
+	
+	@SafeHtml
+	@NotNull(message = "safeString cannot be null")
+	@NotEmpty(message = "safeString cannot be empty")
+	private String safeString;
 	
 	
 	public String getFirstName() {
@@ -47,6 +53,12 @@ public class Student {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public String getSafeString() {
+		return safeString;
+	}
+	public void setSafeString(String safeString) {
+		this.safeString = safeString;
 	}
 
 }
