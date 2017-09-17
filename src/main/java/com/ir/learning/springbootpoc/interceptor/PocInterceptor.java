@@ -3,14 +3,15 @@ package com.ir.learning.springbootpoc.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.slf4j.MDC;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class PocInterceptor extends HandlerInterceptorAdapter {
 	
-	private static final Logger LOGGER = Logger.getLogger(PocInterceptor.class);
+	private static final Log LOGGER = LogFactory.getLog(PocInterceptor.class);
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

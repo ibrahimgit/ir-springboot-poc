@@ -1,6 +1,6 @@
 package com.ir.learning.springbootpoc.config;
 
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -17,6 +17,8 @@ import com.ir.learning.springbootpoc.filter.POCFilter;
 import com.ir.learning.springbootpoc.interceptor.PocInterceptor;
 import com.ir.learning.springbootpoc.services.PocService;
 import com.ir.learning.springbootpoc.services.impl.PocServiceImpl;
+
+
 
 
 @Configuration

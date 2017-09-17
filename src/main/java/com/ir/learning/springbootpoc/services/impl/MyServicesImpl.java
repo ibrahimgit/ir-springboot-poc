@@ -5,7 +5,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.scheduling.annotation.Async;
@@ -18,7 +19,7 @@ import com.ir.learning.springbootpoc.services.MyServices;
 @Service
 public class MyServicesImpl implements MyServices{
 	
-	private static final Logger LOGGER = Logger.getLogger(MyServicesImpl.class);
+	private static final Log LOGGER = LogFactory.getLog(MyServicesImpl.class); //using JCL framework 
 	
 	@Autowired
 	private CustomerRepository customerRepository;

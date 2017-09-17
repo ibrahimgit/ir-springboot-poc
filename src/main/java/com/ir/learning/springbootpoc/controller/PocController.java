@@ -1,6 +1,7 @@
 package com.ir.learning.springbootpoc.controller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ir.learning.springbootpoc.domainmodel.Galaxy;
@@ -29,7 +29,9 @@ public class PocController {
 	
 	private static final String CUSTOM_EXCEPTION = "Custom Exception: ";
 
-	private static final Logger LOGGER = Logger.getLogger(PocController.class);
+	//private static final Logger LOGGER = Logger.getLogger(PocController.class); //using log4j
+	//private static final Log LOGGER = LogFactory.getLog(PocController.class); //using JCL
+	private static final Logger LOGGER = LoggerFactory.getLogger(PocController.class); //using logback with slf4j
 
 	@RequestMapping(value = "exception/{id}", method = RequestMethod.GET)
 	public Galaxy testException(@PathVariable("id") Integer id) throws MyException{

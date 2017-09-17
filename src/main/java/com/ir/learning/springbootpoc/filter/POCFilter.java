@@ -10,11 +10,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 public class POCFilter implements Filter {
 	
-	private static final Logger LOGGER = Logger.getLogger(POCFilter.class);
+	private static final Log LOGGER = LogFactory.getLog(POCFilter.class);
 
 	@Override
 	public void destroy() {

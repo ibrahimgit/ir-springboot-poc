@@ -28,7 +28,7 @@
 			<dependency>
 				<groupId>io.spring.platform</groupId>
 				<artifactId>platform-bom</artifactId>
-				<version>2.0.2.RELEASE</version>
+				<version>Brussels-SR4</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -77,15 +77,16 @@
 		<!-- Removed it to manually add slf4j-log4j12 -->
 		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-log4j</artifactId> 
 			</dependency> -->
-		<!-- logging framework is SLF4J. The dependent Jars are slf4j-api, slf4j-logrj12, 
-			log4j -->
+		<!-- logging API is SLF4J and logging framework is log4j. The dependent 
+			Jars are slf4j-api, slf4j-log4j12, log4j -->
+		<!-- Removed the below dependency to include spring boot starter log4j2 -->
+		<!-- <dependency> <groupId>commons-logging</groupId> <artifactId>commons-logging</artifactId> 
+			<scope>compile</scope> </dependency> <dependency> <groupId>org.slf4j</groupId> 
+			<artifactId>slf4j-log4j12</artifactId> </dependency> <dependency> <groupId>log4j</groupId> 
+			<artifactId>log4j</artifactId> </dependency> -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -104,10 +105,10 @@
 		</dependency>
 		<!-- This was added for bean validation dependency -->
 		<dependency>
-    		<groupId>org.jsoup</groupId>
-    		<artifactId>jsoup</artifactId>
-    	<version>1.8.3</version>
-</dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.8.3</version>
+		</dependency>
 	</dependencies>
 
 	<repositories>
@@ -129,6 +130,15 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.3.0.603</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -152,4 +162,25 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<sonar.jdbc.url>jdbc:mysql://localhost:3306/sonar44?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+				<sonar.jdbc.username>sonar</sonar.jdbc.username>
+				<sonar.jdbc.password>sonar</sonar.jdbc.password>
+				<sonar.host.url>http://localhost:9000</sonar.host.url>
+				<!--<sonar.language>js</sonar.language> -->
+				<sonar.sources>./</sonar.sources>
+				<!-- <sonar.projectDate>yyyy-MM-dd</sonar.projectDate> -->
+				<sonar.exclusions>
+				</sonar.exclusions>
+				<!--<sonar.buildbreaker.skip>true</sonar.buildbreaker.skip> -->
+				<sonar.test.exclusions>src/test/java/**/*</sonar.test.exclusions>
+			</properties>
+		</profile>
+	</profiles>
 </project>
