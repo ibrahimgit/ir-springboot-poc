@@ -12,14 +12,14 @@
 				>
 			</PatternLayout>
 		</Console>
-		<File name="App-Appender" fileName="app_log.log">
+		<File name="App-Appender" fileName="${sys:applog.fileName}">
 			<PatternLayout>
 				<pattern>
 					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
 				</pattern>
 			</PatternLayout>
 		</File>
-		<File name="SpringBoot-Appender" fileName="springboot_log.log">
+		<File name="SpringBoot-Appender" fileName="${sys:springlog.fileName}">
 			<PatternLayout>
 				<pattern>
 					[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
@@ -37,7 +37,7 @@
 			<AppenderRef ref="App-Appender" />
 			<AppenderRef ref="Console-Appender" />
 		</Logger>
-		<Root>
+		<Root level="warn">
 			<AppenderRef ref="Console-Appender" />
 		</Root>
 	</Loggers>

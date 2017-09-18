@@ -3,10 +3,9 @@ package com.ir.learning.springbootpoc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jboss.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +18,7 @@ import com.ir.learning.springbootpoc.services.MyServices;
 @RequestMapping("transaction")
 public class DBTransactionalController {
 	
-	private static final Logger LOGGER = Logger.getLogger(DBTransactionalController.class);
+	private static final Logger LOGGER = LogManager.getLogger(DBTransactionalController.class);
 	
 	@Autowired
 	private MyServices myServices;

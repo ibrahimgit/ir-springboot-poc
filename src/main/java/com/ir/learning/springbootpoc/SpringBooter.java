@@ -1,5 +1,7 @@
 package com.ir.learning.springbootpoc;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -18,6 +20,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class SpringBooter implements CommandLineRunner/*extends SpringBootServletInitializer*/ /*extends WebMvcConfigurerAdapter*/ {
 
+	private static final Log LOGGER = LogFactory.getLog(SpringBooter.class); //Using JCL
 	
 	public static void main(String[] args) {
 		//SpringApplication.run(SpringBooter.class, args);
@@ -26,7 +29,7 @@ public class SpringBooter implements CommandLineRunner/*extends SpringBootServle
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
 			public void run() {
-				System.out.println("*****called when program is terminated.....");
+				LOGGER.debug("*****called when program is terminated.....");
 			}
 		});
 		
@@ -36,7 +39,7 @@ public class SpringBooter implements CommandLineRunner/*extends SpringBootServle
 	//It is called before SpringApplication.run()
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("I am inside the CommandLineRunner");
+		LOGGER.debug("I am inside the CommandLineRunner");
 		
 	}
 	
