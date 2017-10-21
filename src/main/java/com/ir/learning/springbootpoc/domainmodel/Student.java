@@ -10,10 +10,10 @@ import org.hibernate.validator.constraints.SafeHtml;
 
 public class Student {
 	
-	@NotNull(message = "First name cannot be null")
+	//@NotNull(message = "First name cannot be null")
 	@NotEmpty(message = "First name cannot be empty")
 	private String firstName;
-	@NotNull(message = "Last name cannot be null")
+	//@NotNull(message = "Last name cannot be null")
 	@NotEmpty(message = "Last name cannot be empty")
 	private String lastName;
 	//@NotNull(message = "Email cannot be null")

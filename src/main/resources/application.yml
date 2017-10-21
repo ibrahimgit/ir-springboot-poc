@@ -7,3 +7,6 @@ test:
  yml: @project.name@
  delimeter: ${spring.learning.name}
  version1: v1.0
+ 
+secret: 
+ token: djtddjeklewr34k5j489dsidjlkjdkejkj3344

@@ -36,7 +36,7 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 		return pool;
 	}
 	
-	@Bean
+	/*@Bean
 	public FilterRegistrationBean corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
@@ -48,7 +48,7 @@ public class SpringConfig extends WebMvcConfigurerAdapter {
 		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
 		bean.setOrder(0);
 		return bean;
-	}
+	}*/
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
