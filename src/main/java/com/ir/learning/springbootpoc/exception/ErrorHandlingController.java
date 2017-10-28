@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -35,8 +36,8 @@ public class ErrorHandlingController {
 		return re;
 	}
 	
-	@ExceptionHandler({AuthenticationException.class, UnauthorizedEexception.class})
-	public ResponseEntity<ErrorResponse> authenticationException(AuthenticationException e) {
+	@ExceptionHandler({AuthenticationException.class, UnauthorizedEexception.class, AccessDeniedException.class})
+	public ResponseEntity<ErrorResponse> authenticationException(RuntimeException e) {
 		LOGGER.error(e.getMessage(), e);
 		ErrorResponse er = new ErrorResponse(true, e.getMessage(), HttpStatus.UNAUTHORIZED, HttpStatus.UNAUTHORIZED.value());
 

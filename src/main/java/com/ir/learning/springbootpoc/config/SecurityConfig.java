@@ -20,7 +20,7 @@ import com.ir.learning.springbootpoc.security.CustomJwtAuthenticationFilter;
 import com.ir.learning.springbootpoc.security.RestAuthenticationEntryPoint;
 
 @EnableWebSecurity
-@EnableGlobalMethodSecurity
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
@@ -63,7 +63,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	/*@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("Rashid").password("ibrahim").roles("USER");
+		auth.inMemoryAuthentication().withUser("Saba").password("ibrahim").roles("LOVE")
+		.and().withUser("Rashid").password("saba").roles("USER");
 	}*/
 	
 	

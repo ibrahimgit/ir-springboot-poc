@@ -22,7 +22,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		LOGGER.info("User name is {}", username);
-		List<String> roles = Arrays.asList("ISU","AH","BRM","AM");
+		List<String> roles = Arrays.asList("ISUH","AH","BRM","AM");
 		
 		List<SimpleGrantedAuthority> authorities = roles.stream().map(role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
 		

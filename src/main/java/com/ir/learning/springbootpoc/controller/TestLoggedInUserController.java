@@ -3,6 +3,7 @@ package com.ir.learning.springbootpoc.controller;
 import java.security.Principal;
 import java.util.stream.Collectors;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -28,6 +29,8 @@ public class TestLoggedInUserController {
 	}
 	
 	@RequestMapping(value = "authenticateduser", method=RequestMethod.GET)
+	//@PreAuthorize("hasRole('LOVE')") === @PreAuthorize("hasAuthority('ROLE_LOVE')") if role being set using roles(string)
+	@PreAuthorize("hasAuthority('ISU')") //@PreAuthorize("hasRole('ISU')") if role is set through authorities(string)
 	public LoggedInUser getAuthenticatedUser(Authentication authentication) {
 		LoggedInUser user = new LoggedInUser();
 		user.setUsername(authentication.getName());
@@ -44,6 +47,8 @@ public class TestLoggedInUserController {
 	}
 	
 	@RequestMapping(value = "authenticatedPrincipal", method=RequestMethod.GET)
+	//@PreAuthorize("hasRole('USER')") === @PreAuthorize("hasAuthority('ROLE_USER')") if role being set using roles(string)
+	@PreAuthorize("hasAuthority('AH')")
 	public LoggedInUser authenticatedPrinical(@AuthenticationPrincipal User user) {
 		LoggedInUser loggedInUser = new LoggedInUser();
 		loggedInUser.setUsername(user.getUsername());
