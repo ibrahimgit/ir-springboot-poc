@@ -21,7 +21,7 @@ import com.ir.learning.springbootpoc.services.PocService;
 @RequestMapping("poc")
 public class PocController {
 
-	@Autowired//(required=false)
+	@Autowired(required=false)
 	private PocService pocService;
 	
 	@Autowired
